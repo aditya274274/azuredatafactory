@@ -1,0 +1,47 @@
+{
+	"name": "for_each_static_wait",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_array_1",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"input_array": {
+				"type": "String"
+			},
+			"input_array_1": {
+				"type": "Array",
+				"defaultValue": [
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-02-13T04:24:38Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

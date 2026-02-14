@@ -1,0 +1,102 @@
+{
+	"name": "get_metada_file_folder_table",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata file",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "src_empsalcsv_dataset",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"exists",
+						"columnCount",
+						"itemName",
+						"size",
+						"structure",
+						"lastModified"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Get Metadata folder",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "src_folder_dataset",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems",
+						"exists",
+						"lastModified",
+						"itemType"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Get Metadata_table",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "src_emp_table_dataset",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"columnCount",
+						"exists",
+						"structure"
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-02-13T04:16:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

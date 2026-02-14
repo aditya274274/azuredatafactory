@@ -1,0 +1,9 @@
+{
+	"name": "adiboldatafactory",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a3f8b783-4f64-4098-868b-40f03a6cafd6",
+		"tenantId": "e41ad705-c951-4c30-8470-897999d610f3"
+	}
+}
