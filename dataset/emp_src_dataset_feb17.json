@@ -1,0 +1,26 @@
+{
+	"name": "emp_src_dataset_feb17",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LINKED_SERVICE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "source_emp"
+		}
+	}
+}
