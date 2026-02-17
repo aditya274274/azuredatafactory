@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adiboldatafactory"
+		},
+		"AzureDataLakeStorage_linkedservice_accountKey": {
+			"value": ""
+		},
+		"SQL_DB_LINKED_SERVICE_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_linkedservice_properties_typeProperties_url": {
+			"value": "https://adiboladls.dfs.core.windows.net/"
+		},
+		"SQL_DB_LINKED_SERVICE_properties_typeProperties_server": {
+			"value": "adibolsqlserver.database.windows.net"
+		},
+		"SQL_DB_LINKED_SERVICE_properties_typeProperties_database": {
+			"value": "adibolsqlserver"
+		},
+		"SQL_DB_LINKED_SERVICE_properties_typeProperties_userName": {
+			"value": "aditya274"
+		}
+	}
+}
