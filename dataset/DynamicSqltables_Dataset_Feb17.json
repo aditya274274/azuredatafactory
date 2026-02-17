@@ -16,7 +16,7 @@
 		"typeProperties": {
 			"schema": "DBO",
 			"table": {
-				"value": "@dataset().tablename",
+				"value": "@dataset().table_name_dynamic",
 				"type": "Expression"
 			}
 		}
