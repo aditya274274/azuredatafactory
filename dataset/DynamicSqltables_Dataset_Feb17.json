@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"tablename": {
+			"table_name_dynamic": {
 				"type": "String"
 			}
 		},
