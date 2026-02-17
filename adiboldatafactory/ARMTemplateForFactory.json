@@ -160,7 +160,7 @@
 								"referenceName": "DynamicSqltables_Dataset_Feb17",
 								"type": "DatasetReference",
 								"parameters": {
-									"tablename": {
+									"table_name_dynamic": {
 										"value": "@pipeline().parameters.src_table",
 										"type": "Expression"
 									}
@@ -172,7 +172,7 @@
 								"referenceName": "DynamicSqltables_Dataset_Feb17",
 								"type": "DatasetReference",
 								"parameters": {
-									"tablename": {
+									"table_name_dynamic": {
 										"value": "@pipeline().parameters.tgt_table",
 										"type": "Expression"
 									}
@@ -1001,7 +1001,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"tablename": {
+					"table_name_dynamic": {
 						"type": "String"
 					}
 				},
@@ -1011,7 +1011,7 @@
 				"typeProperties": {
 					"schema": "DBO",
 					"table": {
-						"value": "@dataset().tablename",
+						"value": "@dataset().table_name_dynamic",
 						"type": "Expression"
 					}
 				}
