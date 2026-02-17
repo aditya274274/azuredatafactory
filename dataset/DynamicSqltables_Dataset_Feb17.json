@@ -1,0 +1,24 @@
+{
+	"name": "DynamicSqltables_Dataset_Feb17",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LINKED_SERVICE",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "DBO",
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
+		}
+	}
+}
