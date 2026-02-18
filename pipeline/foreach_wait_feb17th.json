@@ -1,0 +1,37 @@
+{
+	"name": "foreach_wait_feb17th",
+	"properties": {
+		"activities": [
+			{
+				"name": "foreach_wait_feb17th",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.wiat_task_to_run",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"wiat_task_to_run": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}
