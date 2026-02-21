@@ -1609,6 +1609,86 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/empsalfile_src_to_tar_folder')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Until1",
+						"type": "Until",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"expression": {
+								"value": "@equals(variables('increment'),3)",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "actual_set",
+									"type": "SetVariable",
+									"dependsOn": [],
+									"policy": {
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "actual",
+										"value": {
+											"value": "@variables('increment')",
+											"type": "Expression"
+										}
+									}
+								},
+								{
+									"name": "increment_set",
+									"type": "SetVariable",
+									"dependsOn": [
+										{
+											"activity": "actual_set",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "increment",
+										"value": {
+											"value": "@add(variables('actual'),1)",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"timeout": "0.12:00:00"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"actual": {
+						"type": "Integer",
+						"defaultValue": 0
+					},
+					"increment": {
+						"type": "Integer",
+						"defaultValue": 0
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
