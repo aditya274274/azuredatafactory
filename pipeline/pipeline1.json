@@ -1,0 +1,74 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(variables('increment'),3)",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "actual_set",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "actual",
+								"value": {
+									"value": "@variables('increment')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "increment_set",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "actual_set",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "increment",
+								"value": {
+									"value": "@add(variables('actual'),1)",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"variables": {
+			"actual": {
+				"type": "Integer",
+				"defaultValue": 0
+			},
+			"increment": {
+				"type": "Integer",
+				"defaultValue": 0
+			}
+		},
+		"annotations": []
+	}
+}
